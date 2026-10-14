@@ -1,0 +1,10 @@
+{
+  "description": "Empower university students to enhance practical skills through engaging seven-day challenges, easily accessed via QR codes for seamless learning.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
