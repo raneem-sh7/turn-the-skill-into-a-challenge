@@ -64,7 +64,7 @@ function Header() {
         </span>
         <span>Turn the Skill into a Challenge</span>
       </a>
-      <span className="header-note">7-day student challenges</span>
+      <span className="header-note">7-step student challenges</span>
     </header>
   );
 }
@@ -147,10 +147,10 @@ function HomePage() {
       <Header />
       <main>
         <section className="hero">
-          <div className="eyebrow">Seven days. One practical skill.</div>
+          <div className="eyebrow">Seven steps. One practical skill.</div>
           <h1>Turn the Skill<br />into a <span>Challenge.</span></h1>
           <p className="hero-tagline">
-            Discover your skill. Scan the QR code. Complete your 7-day challenge.
+            Discover your skill. Scan the QR code. Complete your 7-step challenge.
           </p>
           <p className="instruction">
             Choose a skill, scan its QR code, and start your personal challenge.
@@ -166,7 +166,7 @@ function HomePage() {
               <p className="section-kicker">Challenge library</p>
               <h2>Choose where you’ll grow</h2>
             </div>
-            <p>Each challenge includes one focused action per day.</p>
+            <p>Each challenge includes one focused action per step.</p>
           </div>
           <div className="skill-grid">
             {challenges.map((challenge, index) => (
@@ -208,9 +208,9 @@ function ChallengePage({ challenge }: { challenge: Challenge }) {
     }
   }
 
-  function toggleDay(index: number) {
+  function toggleStep(index: number) {
     setCompleted((current) =>
-      current.map((value, dayIndex) => (dayIndex === index ? !value : value)),
+      current.map((value, stepIndex) => (stepIndex === index ? !value : value)),
     );
   }
 
@@ -224,7 +224,7 @@ function ChallengePage({ challenge }: { challenge: Challenge }) {
         </div>
 
         <section className="challenge-intro">
-          <p className="section-kicker">7-day challenge</p>
+          <p className="section-kicker">7-step challenge</p>
           <h1>{challenge.english}</h1>
           <p className="challenge-arabic" dir="rtl" lang="ar">
             {challenge.arabic}
@@ -235,8 +235,8 @@ function ChallengePage({ challenge }: { challenge: Challenge }) {
         <section className="challenge-card">
           <div className="progress-heading">
             <div>
-              <p className="section-kicker">Your 7-Day Challenge</p>
-              <h2>Make progress, one day at a time.</h2>
+              <p className="section-kicker">Your 7-Step Challenge</p>
+              <h2>Make progress, one step at a time.</h2>
             </div>
             <div className="progress-count" aria-live="polite">
               <strong>{count}</strong> / 7 complete
@@ -248,7 +248,7 @@ function ChallengePage({ challenge }: { challenge: Challenge }) {
             aria-valuemin={0}
             aria-valuemax={7}
             aria-valuenow={count}
-            aria-label={`${count} of 7 days completed`}
+            aria-label={`${count} of 7 steps completed`}
           >
             <div className="progress-fill" style={{ width: `${percent}%` }} />
           </div>
@@ -259,12 +259,12 @@ function ChallengePage({ challenge }: { challenge: Challenge }) {
                 <input
                   type="checkbox"
                   checked={completed[index]}
-                  onChange={() => toggleDay(index)}
+                  onChange={() => toggleStep(index)}
                 />
                 <span className="custom-checkbox" aria-hidden="true">
                   {completed[index] ? "✓" : ""}
                 </span>
-                <span className="day-number">Day {index + 1}</span>
+                <span className="step-number">Step {index + 1}</span>
                 <span className="task-text" dir="rtl" lang="ar">{task}</span>
               </label>
             ))}
@@ -304,7 +304,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer-mark">TS</div>
-      <p>Discover your skill. Take the challenge. Grow in 7 days.</p>
+      <p>Discover your skill. Take the challenge. Grow in 7 steps.</p>
       <p className="footer-credit">Concept &amp; Challenge Design by Raneem Shehadeh</p>
     </footer>
   );
